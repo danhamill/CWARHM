@@ -35,7 +35,7 @@ export EXE_NAME=$summa_exe
 
 # --- Compiler settings 
 # Compiler (ifort // gfortran)
-export FC=gfortran 
+export FC=gfortran
 
 # Compiler .exe
 export FC_EXE='gfortran'
@@ -43,14 +43,20 @@ export FC_EXE='gfortran'
 
 # --- Library settings
 # Load the required libraries
-module load nixpkgs/16.09
-module load gcc/7.3.0
-module load openblas
-module load netcdf-fortran/4.4.4
+module purge
+module load intel-oneapi/2023.1.0
+module load gcc/12.2.0
+
+
+export ZDIR='/p/work/danhamil/projects/CWARHM_data/installs/zlib-1.3.1'
+export H5DIR='/p/work/danhamil/projects/CWARHM_data/installs/hdf5-1.14.4'
+export NCDIR='/p/work/danhamil/projects/CWARHM_data/installs/netcdf-c-4.9.2'
+export BLASDIR='/p/work/danhamil/projects/CWARHM_data/installs/OpenBLAS-v0.3.25'
+
 
 # Specify the necessary paths for the compiler
-export INCLUDES="-I$EBROOTNETCDFMINFORTRAN/include"
-export LIBRARIES="-L$EBROOTNETCDFMINFORTRAN/lib64 -L$EBROOTOPENBLAS/lib -lnetcdff -lopenblas"
+export INCLUDES="-I$NCDIR/include -I$BLASDIR/include"
+export LIBRARIES="-L$NCDIR/lib -L$BLASDIR/lib -lnetcdff -lopenblas"
 
 #---------------------------------
 # Print the settings
