@@ -42,6 +42,10 @@ openblas_url="https://github.com/OpenMathLib/OpenBLAS"
 echo "cloning ${netcdf_f_url} into ${netcdf_f_path}"
 git clone --single-branch --branch v4.6.1 "$netcdf_f_url" "$netcdf_f_path"
 
+module purge
+module load intel-oneapi/2023.1.0
+module load gcc/12.2.0
+
 cd "$netcdf_f_path"
 export NFDIR=${NCDIR}
 export CPPFLAGS=$CPPFLAGS" -I${NCDIR}/include"

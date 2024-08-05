@@ -44,6 +44,10 @@ openblas_url="https://github.com/OpenMathLib/OpenBLAS"
 echo "cloning ${netcdf_c_url} into ${netcdf_c_path}"
 git clone --single-branch --branch v4.9.2 "$netcdf_c_url" "$netcdf_c_path"
 
+module purge
+module load intel-oneapi/2023.1.0
+module load gcc/12.2.0
+
 echo "Building netcdf-c"
 cd "$netcdf_c_path"
 CPPFLAGS="-I${H5DIR}/include -I${ZDIR}/include" LDFLAGS="-L${H5DIR}/lib -L${ZDIR}/lib" ./configure --prefix=${NCDIR}

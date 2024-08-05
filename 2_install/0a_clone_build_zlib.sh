@@ -1,4 +1,6 @@
 
+
+
 export ZDIR='/p/work/danhamil/projects/CWARHM_data/installs/zlib-1.3.1'
 export H5DIR='/p/work/danhamil/projects/CWARHM_data/installs/hdf5-1.14.4'
 export NCDIR='/p/work/danhamil/projects/CWARHM_data/installs/netcdf-c-4.9.2'
@@ -43,6 +45,10 @@ git clone --single-branch --branch v1.3.1 "$zlib_url" "$zlib_path"
 
 owd=$(pwd)
 cd "$zlib_path"
+
+module purge
+module load intel-oneapi/2023.1.0
+module load gcc/12.2.0
 
 echo "Building zlib"
 ./configure --prefix=${ZDIR}

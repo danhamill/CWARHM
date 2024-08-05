@@ -43,6 +43,10 @@ openblas_url="https://github.com/OpenMathLib/OpenBLAS"
 echo "cloning ${hdf5_url} into ${hdf5_path}"
 git clone --single-branch --branch hdf5_1.14.4 "$hdf5_url" "$hdf5_path"
 
+module purge
+module load intel-oneapi/2023.1.0
+module load gcc/12.2.0
+
 cd $hdf5_path
 echo "Building hdf5"
 ./configure --with-zlib=${ZDIR} --prefix=${H5DIR} --enable-hl
