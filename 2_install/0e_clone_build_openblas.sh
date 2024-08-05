@@ -42,6 +42,10 @@ openblas_url="https://github.com/OpenMathLib/OpenBLAS"
 echo "cloning ${openblas_url} into ${openblas_path}"
 git clone --single-branch --branch v0.3.25 "$openblas_url" "$openblas_path"
 
+module purge
+module load intel-oneapi/2023.1.0
+module load gcc/12.2.0
+
 cd "$openblas_path"
 make
 make PREFIX=${BLASDIR} install
