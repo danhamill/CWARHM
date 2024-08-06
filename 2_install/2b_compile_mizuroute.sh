@@ -24,7 +24,7 @@ if [ "$mizu_path" = "default" ]; then
 else 
  mizu_path="${mizu_path}/route/" # note: NEEDS a trailing '/'
 fi
-
+echo $mizu_path
 # Specify home directory of mizuroute/build
 #export 
 F_MASTER=$mizu_path
@@ -42,7 +42,7 @@ EXE=$mizu_exe
 # --- Compiler settings 
 # Compiler (used in selection statements inside Makefile)
 #export 
-FC=gfortran
+FC=intel
 
 # Compiler .exe
 #export 
@@ -51,13 +51,13 @@ FC_EXE='gfortran' # /cvmfs/soft.computecanada.ca/nix/var/nix/profiles/gcc-5.4.0/
 
 # --- Library settings
 # Load the required libraries
-module load nixpkgs/16.09
-module load gcc/7.3.0
-module load netcdf-fortran/4.4.4
+module purge
+module load intel-oneapi/2023.1.0
+module load gcc/12.2.0
 
 # Specify the necessary path for the compiler
 #export 
-NCDF_PATH="$EBROOTNETCDFMINFORTRAN" #/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/gcc5.4/netcdf-fortran/4.4.4
+NCDF_PATH="$NCDIR" #/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/gcc5.4/netcdf-fortran/4.4.4
 
 # Specify if openMP is to be used
 #export 
