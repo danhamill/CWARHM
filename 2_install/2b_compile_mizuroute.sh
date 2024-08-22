@@ -1,4 +1,4 @@
-# Compile mizuRoute on USASK's Copernicus
+# Compile mizuRoute on DOD HPCMP Carpenter
 # export variables are used in the makefile. 
 
 #---------------------------------
@@ -52,12 +52,15 @@ FC_EXE='gfortran' # /cvmfs/soft.computecanada.ca/nix/var/nix/profiles/gcc-5.4.0/
 # --- Library settings
 # Load the required libraries
 module purge
-module load intel-oneapi/2023.1.0
-module load gcc/12.2.0
+module load compiler-rt/latest
+module load tbb/latest
+module load mkl/latest
+module load cseinit
+module load cse/openmpi/3.1.6
 
 # Specify the necessary path for the compiler
 #export 
-NCDF_PATH="$NCDIR" #/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/gcc5.4/netcdf-fortran/4.4.4
+NCDF_PATH="$NETCDF" #/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/gcc5.4/netcdf-fortran/4.4.4
 
 # Specify if openMP is to be used
 #export 

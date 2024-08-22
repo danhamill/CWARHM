@@ -1,4 +1,4 @@
-# Compile SUMMA on USASK's Copernicus
+# Compile SUMMA on DOD HPCMP Carpenter
 # export variables are used in the makefile. 
 
 #---------------------------------
@@ -44,19 +44,23 @@ export FC_EXE='gfortran'
 # --- Library settings
 # Load the required libraries
 module purge
-module load intel-oneapi/2023.1.0
-module load gcc/12.2.0
+module load compiler-rt/latest
+module load tbb/latest
+module load mkl/latest
+module load cseinit
+module load cse/openmpi/3.1.6
 
 
-export ZDIR='/p/work/danhamil/projects/CWARHM_data/installs/zlib-1.3.1'
-export H5DIR='/p/work/danhamil/projects/CWARHM_data/installs/hdf5-1.14.4'
-export NCDIR='/p/work/danhamil/projects/CWARHM_data/installs/netcdf-c-4.9.2'
-export BLASDIR='/p/work/danhamil/projects/CWARHM_data/installs/OpenBLAS-v0.3.25'
+export NETCDF="/app/CSE/NETCDF-HDF5-OPENMPI-3.1.6/netcdf_fortran-4.6.0"
+export NETCDFLIB="/app/CSE/NETCDF-HDF5-OPENMPI-3.1.6/netcdf_fortran-4.6.0/lib"
+export NETCDFINC="/app/CSE/NETCDF-HDF5-OPENMPI-3.1.6/netcdf_fortran-4.6.0/include"
+export MKLINC="/p/app/intel/oneapi_2024.2.0/mkl/2024.2/include"
+export MKLLIB="/p/app/intel/oneapi_2024.2.0/mkl/2024.2/lib"
 
 
 # Specify the necessary paths for the compiler
-export INCLUDES="-I$NCDIR/include -I$BLASDIR/include"
-export LIBRARIES="-L$NCDIR/lib -L$BLASDIR/lib -lnetcdff -lopenblas"
+export INCLUDES="-I$NETCDFINC -I$MKLINC"
+export LIBRARIES="-L$NETCDFLIB -L$MKLLIB -lnetcdff -lmkl_gf_lp64 -lmkl_core -lmkl_sequential"
 
 #---------------------------------
 # Print the settings
