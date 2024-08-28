@@ -47,7 +47,7 @@ github_mizuroute            | https://github.com/ncar/mizuroute           # Repl
 github_ostrich              | https://github.com/DOI-BOR/ostrich.git
 install_path_summa          | default                                     # If 'default', clones source code into 'root_path/installs/summa'.
 install_path_mizuroute      | default                                     # If 'default', clones source code into 'root_path/installs/mizuRoute'.
-install_path_summa          | default                                     # If 'default', clones source code into 'root_path/installs/ostrich'.
+install_path_ostrich        | default                                     # If 'default', clones source code into 'root_path/installs/ostrich'.
 exe_name_summa              | summa.exe                                   # Name of the compiled executable.
 exe_name_mizuroute          | mizuroute.exe                               # Name of the compiled executable.
 

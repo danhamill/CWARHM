@@ -1,6 +1,7 @@
 # Script to clone SUMMA
 # Reads GitHub location of the fork and desired install location from 'summaWorkflow_public/0_control_files/control_active.txt'
 
+
 # --- Settings
 # Find the line with the GitHub url
 setting_line=$(grep -m 1 "^github_ostrich" ../0_control_files/control_active.txt) # -m 1 ensures we only return the top-most result. This is needed because variable names are sometimes used in comments in later lines
@@ -18,7 +19,7 @@ ostrich_path=$(echo ${ostrich%%#*})
 
 
 # Specify the default path if needed
-if [ "$summa_path" = "default" ]; then
+if [ "$ostrich_path" = "default" ]; then
   
  # Get the root path
  root_line=$(grep -m 1 "^root_path" ../0_control_files/control_active.txt)
@@ -32,7 +33,7 @@ fi
 echo "cloning ${github_url} into ${ostrich_path}"
 git clone --single-branch --branch v21.03.16 "$github_url" "$ostrich_path"
 
-# Navigate into the new 'summa' dir
+# Navigate into the new 'ostrich' dir
 owd=$(pwd)
 cd "$ostrich_path"
 
