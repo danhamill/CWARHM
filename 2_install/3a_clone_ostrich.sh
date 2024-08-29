@@ -15,7 +15,7 @@ dest_line=$(grep -m 1 "^install_path_ostrich" ../0_control_files/control_active.
 
 # Extract the path
 ostrich_path=$(echo ${dest_line##*|}) 
-ostrich_path=$(echo ${ostrich%%#*}) 
+ostrich_path=$(echo ${ostrich_path%%#*}) 
 
 
 # Specify the default path if needed
