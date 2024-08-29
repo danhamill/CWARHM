@@ -64,7 +64,7 @@ echo 'executable name: ' $EXE
 echo # empty line				 
 
 owd=$(pwd)
-cd "$ostrich_path/build"
+cd "$ostrich_path/make"
 
 #---------------------------------
 # Compile
