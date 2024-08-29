@@ -11,7 +11,7 @@ github_url=$(echo ${setting_line##*|}) # remove the part that ends at "|"
 github_url=$(echo ${github_url%%#*}) # remove the part starting at '#'; does nothing if no '#' is present
 
 # Find the line with the destination path
-dest_line=$(grep -m 1 "^install_ostrich_summa" ../0_control_files/control_active.txt) 
+dest_line=$(grep -m 1 "^install_path_ostrich" ../0_control_files/control_active.txt) 
 
 # Extract the path
 ostrich_path=$(echo ${dest_line##*|}) 
