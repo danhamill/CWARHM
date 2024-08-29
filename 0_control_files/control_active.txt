@@ -50,7 +50,7 @@ install_path_mizuroute      | default                                     # If '
 install_path_ostrich        | default                                     # If 'default', clones source code into 'root_path/installs/ostrich'.
 exe_name_summa              | summa.exe                                   # Name of the compiled executable.
 exe_name_mizuroute          | mizuroute.exe                               # Name of the compiled executable.
-
+exe_name_ostrich            | Ostrich.exe
 
 # Forcing settings
 forcing_raw_time            | 2008,2013                                   # Years to download: Jan-[from],Dec-[to].
